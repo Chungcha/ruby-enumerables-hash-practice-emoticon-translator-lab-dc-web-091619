@@ -29,8 +29,12 @@ def get_japanese_emoticon(path,emoticon)
 end
 
 def get_english_meaning(path,emoticon)
-  load_library(path)
-  binding.pry
+  load_library(path)["get_meaning"].each do |j_emo,meaning|
+    if emoticon == j_emo
+      return meaning
+    end
+  end
+  "Sorry, that emoticon was not found"
 end
 
 
